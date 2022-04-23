@@ -1,0 +1,22 @@
+body {
+    min-height: 100vh;
+}
+
+#container {
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+}
+
+.column{
+    height: 40px;
+    width: 40px;
+    border: 2px solid black;
+    margin: 1px;
+}
