@@ -1,19 +1,24 @@
-function createDiv(container, amount){
-    for(let row = 0; row < gridSize; row++){
-        const gridRow = document.createElement('div');
-        gridRow.className = `row ${row+1}`;
-        container.appendChild(gridRow);
-        for(let column = 0; column < gridSize; column++){
-            const gridColumn = document.createElement('div');
-            gridColumn.className = `column ${column+1}`;
-            gridRow.appendChild(gridColumn);
+function createDiv(gridRow, gridCol){
+    for(let row = 0; row < gridRow; row++){
+        for(let column = 0; column < gridCol; column++){
+            const grid = document.createElement('div');
+            grid.className = `grid ${row+1}x${column+1}`;
+            //grid.textContent = `${column+1}`
+            container.appendChild(grid);
         }
     }
 }
 
-const gridSize = 16;
+const row = 16;
+const column = 16;
 const container = document.querySelector('#container');
 
-createDiv(container, gridSize);
+createDiv(row, column);
+const grids = document.querySelectorAll('.grid');
+grids.forEach((grid) => grid.addEventListener('mouseenter', () => {
+    grid.classList.add('hover');
+}));
+
+
 
 
