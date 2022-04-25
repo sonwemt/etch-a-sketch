@@ -1,23 +1,43 @@
-function createDiv(gridRow, gridCol){
-    for(let row = 0; row < gridRow; row++){
-        for(let column = 0; column < gridCol; column++){
-            const grid = document.createElement('div');
-            grid.className = `grid ${row+1}x${column+1}`;
+function createHoverCheck(){
+    let grids = document.querySelectorAll('.column');
+    grids.forEach((grid) => grid.addEventListener('mouseenter', () => {
+    grid.classList.add('hover');
+}));
+}
+
+function createDiv(size){
+    container.replaceChildren();
+    for(let row = 0; row < size; row++){
+        const dRow = document.createElement('div');
+        dRow.className = `row ${row+1}`; 
+        container.appendChild(dRow);
+        for(let column = 0; column < size; column++){
+            const col = document.createElement('div');
+            col.className = `column ${column+1}`;
             //grid.textContent = `${column+1}`
-            container.appendChild(grid);
+            dRow.appendChild(col);
         }
     }
 }
 
-const row = 16;
-const column = 16;
+const size = 32;
 const container = document.querySelector('#container');
 
-createDiv(row, column);
-const grids = document.querySelectorAll('.grid');
-grids.forEach((grid) => grid.addEventListener('mouseenter', () => {
-    grid.classList.add('hover');
-}));
+createDiv(size);
+createHoverCheck();
+
+
+const resetButton = document.querySelector('button');
+resetButton.addEventListener('click', () => {
+    const answer = prompt('Enter new grid size(1-100)');
+    if(answer != null && answer < 101 && answer > 0){
+        createDiv(answer);
+        createHoverCheck();
+    }
+});
+
+
+
 
 
 
