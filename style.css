@@ -1,22 +1,22 @@
-body {
-    min-height: 100vh;
+body{
+    display: flex;
 }
 
 #container {
-    padding: 100px;
+    width: 352px;
+    height: 352px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-.row {
+.grid {
     display: flex;
+    height: 18px;
+    width: 18px;
+    border: 2px solid black;
 }
 
-.column{
-    height: 40px;
-    width: 40px;
-    border: 2px solid black;
-    margin: 1px;
+.hover {
+    background-color: black;
 }
